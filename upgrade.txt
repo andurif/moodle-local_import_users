@@ -1,0 +1,8 @@
+This file describes changes for the plugin.
+
+=== v3.9-r1 ===
+
+* Add possibility to enrol users with a .csv/.txt file.
+* Add possibility to add users in a group with a .csv/.txt file.
+* Add possibility to add users in multiple groups with a .csv/.txt file and to enrol user to the course if they are not already enrolled.
+* Moodle 3.9 to 3.11 compatibility.
