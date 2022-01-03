@@ -58,6 +58,7 @@ class import_form_group extends moodleform
         ));
         $mform->addHelpButton('importfile', 'select_file', 'local_import_users', '', null);
         $mform->addHelpButton('groupid', 'select_group', 'local_import_users', '', null);
+        $mform->addRule('groupid', null, 'required', null, 'client');
 
         $link = html_writer::link(new moodle_url('examples/example.csv'), 'example.csv');
         $mform->addElement('static', 'examplecsv', get_string('download_example_csv', 'local_import_users'), $link);

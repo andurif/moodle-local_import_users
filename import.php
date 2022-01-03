@@ -63,20 +63,25 @@ if ($form->is_cancelled()) {
             $extension = pathinfo($form->get_new_filename('importfile'), PATHINFO_EXTENSION);
 
             $data = [];
-            $data = $formatters[$extension]($form, ucfirst($extension));
+            $content = $form->get_file_content('importfile');
+            $data = str_getcsv($content, "\n");
             $role = $DB->get_record('role', array('id' => $form->get_data()->roleid), '*', MUST_EXIST);
             $rolename = ($role->name) ? $role->name : $role->shortname;
             $nb = 0;
             foreach ($data as $row) {
                 $row = str_getcsv($row, ";");
-                if (!is_numeric($row['idNumber']) && !empty($row['idNumber'])) {
+                if (!is_numeric($row[2]) && !empty($row[2])) {
                     // Next iteration if the ref column is not a numeric value.
                     continue;
                 }
-                if (!empty($row['idNumber'])) {
+                if (!empty($row[2])) {
                     try {
                         // We search the user with this idnumber. We only take active users (suspended = 0).
-                        $user = $DB->get_record('user', array('idnumber' => $row['idNumber'], 'suspended' => 0), '*', MUST_EXIST);
+                        $user = $DB->get_record('user', array('idnumber' => $row[2], 'suspended' => 0), '*');
+                        if (!$user) {
+                            echo '<div id="flashbag" class="alert alert-danger alert-dismissible" role="alert">' . sprintf(get_string('user_not_found_idnumber', 'local_import_users'), $row[2]) . '</div>';
+                            continue;
+                        }
                     } catch (Exception $exc) {
                         echo '<div id="flashbag" class="alert alert-danger alert-dismissible" role="alert">' . $exc->getMessage() . '</div>';
                         continue;
@@ -84,7 +89,11 @@ if ($form->is_cancelled()) {
                 } else {
                     try {
                         // We search the user with this email address. We only take active users (suspended = 0).
-                        $user = $DB->get_record('user', array('email' => $row['email'], 'suspended' => 0), '*', MUST_EXIST);
+                        $user = $DB->get_record('user', array('email' => $row[3], 'suspended' => 0), '*');
+                        if (!$user) {
+                            echo '<div id="flashbag" class="alert alert-danger alert-dismissible" role="alert">' . sprintf(get_string('user_not_found_email', 'local_import_users'), $row[3]) . '</div>';
+                            continue;
+                        }
                     } catch (Exception $exc) {
                         echo '<div id="flashbag" class="alert alert-danger alert-dismissible" role="alert">' . $exc->getMessage() . '</div>';
                         continue;

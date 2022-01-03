@@ -34,6 +34,8 @@ $string['enrolled_users'] = 'Voir les utilisateurs inscrits';
 $string['new_enrol'] = 'Faire une nouvelle inscription';
 $string['no_user_imported'] = 'Aucun utilisateur n\'a pu être ajouté au cours via ce fichier.';
 $string['users_group_imported_count'] = '%d utilisateurs viennent d\'être ajoutés au groupe.';
+$string['user_not_found_idnumber'] = 'L\'utilisateur avec le numero d\'identification %s n\'a pas été trouvé et n\'a donc pas été inscrit au cours.';
+$string['user_not_found_email'] = 'L\'utilisateur avec l\'adresse email %s n\'a pas été trouvé et n\'a donc pas été inscrit au cours.';
 
 $string['import:enrol'] = 'Importer des utilisateurs';
 $string['import:select_role'] = 'Inscrire en tant que';

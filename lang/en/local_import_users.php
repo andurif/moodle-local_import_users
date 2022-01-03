@@ -34,6 +34,8 @@ $string['enrolled_users'] = 'See enrolled users';
 $string['new_enrol'] = 'Make a new enrol';
 $string['no_user_imported'] = 'No users imported from this file.';
 $string['users_group_imported_count'] = '%d new group members.';
+$string['user_not_found_idnumber'] = 'User with idnumber %s not found so the user has not been enrolled.';
+$string['user_not_found_email'] = 'User with email %s not found so the user has not been enrolled.';
 
 $string['import:enrol'] = 'Import users';
 $string['import:select_role'] = 'Enrol users as';

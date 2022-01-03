@@ -86,7 +86,11 @@ if ($form->is_cancelled()) {
                 if (is_numeric($row[2])) {
                     try {
                         // We search the user with this idnumber. We only take active users (suspended = 0).
-                        $user = $DB->get_record('user', array('idnumber' => $row[2], 'suspended' => 0), '*', MUST_EXIST);
+                        $user = $DB->get_record('user', array('idnumber' => $row[2], 'suspended' => 0), '*');
+                        if (!$user) {
+                            echo '<div id="flashbag" class="alert alert-danger alert-dismissible" role="alert">' . sprintf(get_string('user_not_found_idnumber', 'local_import_users'), $row[2]) . '</div>';
+                            continue;
+                        }
                     } catch (Exception $exc) {
                         echo '<div id="flashbag" class="alert alert-danger alert-dismissible" role="alert">' . $exc->getMessage() . '</div>';
                         continue;
@@ -94,7 +98,11 @@ if ($form->is_cancelled()) {
                 } elseif (!empty($row[3])) {
                     try {
                         // We search the user with this email address. We only take active users (suspended = 0).
-                        $user = $DB->get_record('user', array('email' => $row[3], 'suspended' => 0), '*', MUST_EXIST);
+                        $user = $DB->get_record('user', array('email' => $row[3], 'suspended' => 0), '*');
+                        if (!$user) {
+                            echo '<div id="flashbag" class="alert alert-danger alert-dismissible" role="alert">' . sprintf(get_string('user_not_found_email', 'local_import_users'), $row[3]) . '</div>';
+                            continue;
+                        }
                     } catch (Exception $exc) {
                         echo '<div id="flashbag" class="alert alert-danger alert-dismissible" role="alert">' . $exc->getMessage() . '</div>';
                         continue;
@@ -120,7 +128,14 @@ if ($form->is_cancelled()) {
                 }
             }
 
-            echo $OUTPUT->continue_button(course_get_url($course));
+            $course_url = new moodle_url('/course/view.php', array("id" => $course->id));
+            $users_url = new moodle_url('/user/index.php', array("id" => $course->id));
+
+            echo '<div style="text-align: center">
+                <a href="' . $users_url . '" class="btn btn-secondary">' . get_string('enrolled_users', 'local_import_users') . '</a>
+                <a href="' . $submit_url . '" class="btn btn-secondary">' . get_string('new_enrol', 'local_import_users') . '</a>
+                <a href="' . $course_url . '" class="btn btn-secondary">' . get_string('returntocourse', 'block_completionstatus') . '</a>
+            </div>';
         }
     } else {
         // Form display.

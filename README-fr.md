@@ -5,10 +5,10 @@ Plugin local permettant d'importer des utilisateurs via un fichier .csv pour les
 Pré-requis
 ------------
 - Moodle en version 3.9 ou plus récente.<br/>
-  -> Tests effectués sur des versions 3.9 à 3.11.3 et avec une installation basique de moodle (certains ajustements seront peut-être nécessaires en cas d'utilisation de plugins additionnels, notamment pour les formats de cours).
+  -> Tests effectués sur des versions 3.9 à 3.11.3 et avec une installation basique de moodle.
 
 
-Installation basique
+Installation
 ------------
 1. Installation du plugin
 
@@ -28,28 +28,28 @@ Présentation / Utilisation
 
 Ce plugin possède 3 fonctionnalités:
 <ul>
-<li>l'inscription d'utilisateurs à un cours un fichier .csv.</li>
+<li>l'inscription d'utilisateurs à un cours via un fichier .csv.</li>
 <li>l'ajout en masse d'utilisateurs à un groupe d'un cours via un fichier .csv.</li>
 <li>l'ajout en masse d'utilisateurs à plusieurs groupes via un fichier .csv avec possibilité de créer automatiquement les groupes manquants.</li>
 </ul>
 
-#### => Inscription d'utilisateur à un cours via fichier .csv:
-Accessible à l'adresse: https://mymoodle.com/local/import_users/import.php?id=[COURSE_ID]
+#### => Inscription d'utilisateurs à un cours via fichier .csv:
+Accessible à l'adresse: https://mymoodle.com/local/import_users/import.php?id=COURSE_ID
 
 Cette page permet d'inscrire via un fichier .csv plusieurs utilisateurs à un cours et avec le rôle défini dans le formulaire.<br/>
 La correspondance avec les utilisateurs de la plateforme se ferra d'abord sur le champ "numéro d'identification" puis sur le champ "email" si le champ précédent n'est pas présent dans le fichier.
 
 #### => Ajout d'utilisateurs à un groupe via fichier .csv:
-Accessible à l'adresse: https://mymoodle.com/local/import_users/import_users_group.php?id=[COURSE_ID]
+Accessible à l'adresse: https://mymoodle.com/local/import_users/import_users_group.php?id=COURSE_ID
 
 Cette page permet d'ajouter en massse via un fichier .csv plusieurs utilisateurs à un groupe sélectionné parmi la liste des groupes existant dans ce cours.<br/>
 La correspondance avec les utilisateurs de la plateforme se ferra d'abord sur le champ "numéro d'identification" puis sur le champ "email" si le champ précédent n'est pas présent dans le fichier.
 
 #### => Ajout en masse d'utilisateurs à un/des groupes via fichier .csv:
-Accessible à l'adresse: https://mymoodle.com/local/import_users/group_multienrol.php?id=[COURSE_ID]
+Accessible à l'adresse: https://mymoodle.com/local/import_users/group_multienrol.php?id=COURSE_ID
 
 Cette page permet d'ajouter en massse via un fichier .csv plusieurs utilisateurs à des groupes du cours.<br/>
-Le formulaire donnera la possibilité d'également inscrire les utilisateurs qui ne seraient pas inscrits à ce cours ainsi que de créér les groupes figurant dans le fichier et qui n'existeraient pas encore dans ce cours.<br/>
+Le formulaire donnera également la possibilité d'inscrire les utilisateurs qui ne seraient pas inscrits à ce cours ainsi que de créér les groupes figurant dans le fichier et qui n'existeraient pas encore dans ce cours.<br/>
 La correspondance avec les utilisateurs de la plateforme se ferra d'abord sur le champ "numéro d'identification" puis sur le champ "email" si le champ précédent n'est pas présent dans le fichier et sur le nom du groupe pour la partie groupe.
 
 A propos

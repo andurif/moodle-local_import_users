@@ -62,6 +62,7 @@ if ($mform->is_cancelled()) {
 
         $users = process_users_from_file($content);
         $nb = 0;
+        $msg = "";
 
         foreach ($users['ok'] as $user) {
             if (is_enrolled($context, $user)) {
