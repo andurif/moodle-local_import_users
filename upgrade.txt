@@ -1,5 +1,10 @@
 This file describes changes for the plugin.
 
+=== v3.11-r1 ===
+
+* Add capability for each action/page.
+* Display actions links in the course administration page (in function of defined capabilities).
+
 === v3.9-r1 ===
 
 * Add possibility to enrol users with a .csv/.txt file.

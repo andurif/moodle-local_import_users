@@ -35,16 +35,17 @@ $context = context_course::instance($course->id, MUST_EXIST);
 
 require_login($course);
 require_capability('moodle/course:managegroups', $context);
+require_capability('local/import_users:importusersgroup', $context);
 
 $PAGE->set_pagelayout('admin');
 $PAGE->set_url(new moodle_url('/local/import_users/import_users_group.php', array('id' => $course->id)));
 $PAGE->set_title(get_string('coursetitle', 'moodle', array('course' => $course->fullname)));
 $PAGE->set_heading($PAGE->title);
-$PAGE->navbar->add(get_string('import_users_group_title','local_import_users'));
+$PAGE->navbar->add(get_string('import_users_group:title','local_import_users'));
 
 
 echo $OUTPUT->header();
-echo $OUTPUT->heading(sprintf(get_string('import_users_group_title','local_import_users'), $course->fullname));
+echo $OUTPUT->heading(sprintf(get_string('import_users_group:title','local_import_users'), $course->fullname));
 
 $submit_url = new moodle_url('/local/import_users/import_users_group.php', array('id' => $course->id))."";
 $mform = new import_form_group($submit_url);
@@ -78,7 +79,7 @@ if ($mform->is_cancelled()) {
         if (!empty($users['ko'])) {
             $msg .= '<hr/><img src="../../pix/i/completion-auto-n.png"> ' . get_string('csv_line_unknown_users', 'local_import_users') . implode(',', $users['ko']);
         }
-        
+
         if ($nb > 0) {
             $msg = sprintf(get_string('users_group_imported_count', 'local_import_users'), $nb) . '<br/><br/>' . $msg;
         } else {

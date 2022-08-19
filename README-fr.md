@@ -1,11 +1,12 @@
-Moodle UCA - Plugin local d'import d'utilisateurs
+Plugin local d'import d'utilisateurs
 ==================================
 Plugin local permettant d'importer des utilisateurs via un fichier .csv pour les inscrire à un cours ou les ajouter à un ou plusieurs groupes d'un cours.
 
 Pré-requis
 ------------
 - Moodle en version 3.9 ou plus récente.<br/>
-  -> Tests effectués sur des versions 3.9 à 3.11.3 et avec une installation basique de moodle.
+  -> Tests effectués sur des versions 3.9 à 3.11.8 et avec une installation basique de moodle.<br/>
+  -> Tests sur la version 4 de Moodle en cours.
 
 
 Installation
@@ -52,6 +53,9 @@ Cette page permet d'ajouter en massse via un fichier .csv plusieurs utilisateurs
 Le formulaire donnera également la possibilité d'inscrire les utilisateurs qui ne seraient pas inscrits à ce cours ainsi que de créér les groupes figurant dans le fichier et qui n'existeraient pas encore dans ce cours.<br/>
 La correspondance avec les utilisateurs de la plateforme se ferra d'abord sur le champ "numéro d'identification" puis sur le champ "email" si le champ précédent n'est pas présent dans le fichier et sur le nom du groupe pour la partie groupe.
 
+---
+<p>Ces actions sont également disponibles depuis la page d'administration du cours.</p>
+
 A propos
 ------
-<a href="https://www.uca.fr">Université Clermont Auvergne</a> - 2021
+<a href="https://www.uca.fr" target="_blank">Université Clermont Auvergne</a> - 2022

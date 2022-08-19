@@ -26,6 +26,9 @@
 $string['pluginname'] = 'Local plugin "Import users"';
 $string['privacy:metadata'] = 'Le plugin local de création de cours custom n\'enregistre aucune donnée personnelle.';
 $string['import'] = 'Enrol users with a file';
+$string['import_users:import'] = 'Enrol users with a file';
+$string['import_users:importusersgroup'] = 'Import users to a group with a file';
+$string['import_users:multienrolgroup'] = 'Import users to multiple groups with a file';
 $string['confirm_enrol_msg'] = 'The user %s has been correctly enrolled with the role "%s".';
 $string['already_enrol_msg'] = 'The user %s has already been enrolled.';
 $string['no_user_found'] = 'Impossible to find this user in database.';
@@ -50,7 +53,7 @@ $string['create_groups_not_existing_help'] = 'If the box is checked and groups t
 $string['download_example_csv'] = 'Example .csv file';
 $string['download_example_csv_help'] = 'Example .csv file with an expected structure example';
 
-$string['import_users_group_title'] = 'Import users to a group with a file';
+$string['import_users_group:title'] = 'Import users to a group with a file';
 $string['is_not_registered_to_the_course'] = " is not enrolled in the course";
 $string['csv_line_unknown_users'] = "The following lines do not match with valid users in the system : ";
 $string['select_group'] = "Choose group";

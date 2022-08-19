@@ -26,6 +26,9 @@
 $string['pluginname'] = 'Plugin local d\'import d\'utilisateurs';
 $string['privacy:metadata'] = 'Le plugin local de création de cours custom n\'enregistre aucune donnée personnelle.';
 $string['import'] = 'Inscrire des utilisateurs via un fichier';
+$string['import_users:import'] = 'Inscrire des utilisateurs via un fichier';
+$string['import_users:importusersgroup'] = 'Importer des utilisateurs à un groupe via un fichier';
+$string['import_users:multienrolgroup'] = 'Importer des utilisateurs en masse à des groupes via un fichier';
 $string['confirm_enrol_msg'] = 'L\'utilisateur %s a bien été incrit au cours avec le rôle "%s".';
 $string['already_enrol_msg'] = 'L\'utilisateur %s est déjà inscrit au cours.';
 $string['no_user_found'] = 'Impossible de retrouver l\'utilisateur en base.';
@@ -50,7 +53,7 @@ $string['create_groups_not_existing_help'] = 'Si la case est cochée et que des 
 $string['download_example_csv'] = 'Fichier .csv exemple';
 $string['download_example_csv_help'] = 'Fichier .csv présentant un exemple de fichier attendu par le formulaire';
 
-$string['import_users_group_title'] = 'Importer des utilisateurs à un groupe via un fichier';
+$string['import_users_group:title'] = 'Importer des utilisateurs à un groupe via un fichier';
 $string['is_not_registered_to_the_course'] = " n'est pas inscrit au cours";
 $string['csv_line_unknown_users'] = "Les lignes suivantes ne correspondent pas à des utilisateurs de la plateforme : ";
 $string['select_group'] = "Choisir le groupe";

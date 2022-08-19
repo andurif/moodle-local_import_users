@@ -17,19 +17,41 @@
 /**
  * Definition of the plugin capabilities.
  *
- * @package    local_uca_mycourses
- * @author     Université Clermont Auvergne - Pierre Raynaud, Anthony Durif
- * @copyright  2018 Université Clermont Auvergne
+ * @package    local_import_users
+ * @author     Université Clermont Auvergne - Anthony Durif
+ * @copyright  2021 Université Clermont Auvergne
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 $capabilities = array(
-    'local/uca_mycourses:manage_bookmarks' => array(
+    'local/import_users:import' => array(
         'riskbitmask'   => RISK_SPAM,
         'captype'       => 'write',
         'contextlevel'  => CONTEXT_USER,
-        'archetypes'    => array(
-            'user'  => CAP_ALLOW,
-        )
+        'archetypes' => array(
+            'editingteacher' => CAP_ALLOW,
+            'teacher'        => CAP_ALLOW,
+            'manager'        => CAP_ALLOW
+        ),
+    ),
+    'local/import_users:importusersgroup' => array(
+        'riskbitmask'   => RISK_SPAM,
+        'captype'       => 'write',
+        'contextlevel'  => CONTEXT_USER,
+        'archetypes' => array(
+            'editingteacher' => CAP_ALLOW,
+            'teacher'        => CAP_ALLOW,
+            'manager'        => CAP_ALLOW
+        ),
+    ),
+    'local/import_users:multienrolgroup' => array(
+        'riskbitmask'   => RISK_SPAM,
+        'captype'       => 'write',
+        'contextlevel'  => CONTEXT_USER,
+        'archetypes' => array(
+            'editingteacher' => CAP_ALLOW,
+            'teacher'        => CAP_ALLOW,
+            'manager'        => CAP_ALLOW
+        ),
     )
 );

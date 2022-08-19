@@ -134,3 +134,73 @@ function enrol_user($group_name, $user, $course_id, $create_groupe_not_existing)
 
     }
 }
+
+/**
+ * Function to add actions links in the course administration menu.
+ * @param settings_navigation $settingsnav the navigation.
+ * @param context $context the context.
+ * @throws coding_exception
+ * @throws moodle_exception
+ */
+function local_import_users_extend_settings_navigation(settings_navigation $settingsnav, context $context)
+{
+    $addnode = $context->contextlevel === 50;
+    $courseid = $context->instanceid;
+    // Find the course settings node using the 'courseadmin' key.
+    $coursesettingsnode = $settingsnav->find('courseadmin', null);
+
+    $addnodeimport = $addnode && has_capability('moodle/course:managegroups', $context)
+        && has_capability('local/import_users:import', $context);
+    if ($addnodeimport) {
+        $urltext = get_string('import', 'local_import_users');
+        $url = new moodle_url('/local/import_users/import.php', ['id' => $courseid] );
+
+        $node = $coursesettingsnode->create(
+            $urltext,
+            $url,
+            navigation_node::NODETYPE_LEAF,
+            null,
+            'localimportusers',
+            null
+        );
+
+        $coursesettingsnode->add_node($node);
+    }
+
+    $groups = groups_get_course_data($courseid);
+    $addnodeimportgroup = $addnode && count($groups->groups) > 0 && has_capability('moodle/course:managegroups', $context)
+        && has_capability('local/import_users:importusersgroup', $context);
+    if ($addnodeimportgroup) {
+        $urltext = get_string('import_users_group:title', 'local_import_users');
+        $url = new moodle_url('/local/import_users/import_users_group.php', ['id' => $courseid] );
+
+        $node = $coursesettingsnode->create(
+            $urltext,
+            $url,
+            navigation_node::NODETYPE_LEAF,
+            null,
+            'localimportusersgroup',
+            null
+        );
+
+        $coursesettingsnode->add_node($node);
+    }
+
+    $addnodemultienrol = $addnode && count($groups->groups) > 0 && has_capability('moodle/course:managegroups', $context)
+        && has_capability('local/import_users:multienrolgroup', $context);
+    if ($addnodemultienrol) {
+        $urltext = get_string('group_multienrol:title', 'local_import_users');
+        $url = new moodle_url('/local/import_users/group_multienrol.php', ['id' => $courseid] );
+
+        $node = $coursesettingsnode->create(
+            $urltext,
+            $url,
+            navigation_node::NODETYPE_LEAF,
+            null,
+            'localimportusersmulti',
+            null
+        );
+
+        $coursesettingsnode->add_node($node);
+    }
+}

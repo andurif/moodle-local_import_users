@@ -40,6 +40,7 @@ $manager = new course_enrolment_manager($PAGE, $course);
 $submit_url = new moodle_url('/local/import_users/import.php', array('id' => $course->id));
 
 require_login($course);
+require_capability('local/import_users:import', $context);
 
 $PAGE->requires->jquery();
 
@@ -124,7 +125,7 @@ if ($form->is_cancelled()) {
             }
 
             // We displays a message with imports done or not.
-            $msg = ($nb == 0) ? get_string('no_user_imported', 'local_uca_enrol') : sprintf(get_string('users_imported_count', 'local_import_users'), $nb);
+            $msg = ($nb == 0) ? get_string('no_user_imported', 'local_import_users') : sprintf(get_string('users_imported_count', 'local_import_users'), $nb);
             echo '<div id="flashbag" class="alert alert alert-dismissible" role="alert">' . $msg . '</div>';
 
             // Redirect buttons display.

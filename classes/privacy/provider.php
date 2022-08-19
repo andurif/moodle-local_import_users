@@ -23,14 +23,14 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace local_uca_mycourses\privacy;
+namespace local_import_users\privacy;
 
 use \core_privacy\local\metadata\collection;
 
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * The local_uca_mycourses plugin stores some user preferences datas.
+ * The local_import_users plugin stores some user preferences datas.
  *
  * @copyright  2018 Université Clermont Auvergne
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

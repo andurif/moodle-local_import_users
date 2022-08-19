@@ -1,6 +1,6 @@
 Nom;Prénom;IdNumber;Adresse de courriel;Groupe1|Groupe2
-Martin;Jean;114455;xxx_Jean.Martin@uca.fr;G1
-Dupont;Clement;11142458;xxx_Clement.Dupont@etu.uca.fr
-Dumas;Nicolas;21102252;xxx_Nicolas.Dumas@etu.uca.fr;G2
-Simon;Celine;;xxx_Celine.Simon@etu.uca.fr;G1|G2|G3
-Sateur;Util;245111;xxx_utilisateur@etu.uca.fr;G3
+Martin;Jean;114455;xxx_Jean.Martin@mail.fr;G1
+Dupont;Clement;11142458;xxx_Clement.Dupont@etu.mail.fr
+Dumas;Nicolas;21102252;xxx_Nicolas.Dumas@etu.mail.fr;G2
+Simon;Celine;;xxx_Celine.Simon@etu.mail.fr;G1|G2|G3
+Sateur;Util;245111;xxx_utilisateur@etu.mail.fr;G3

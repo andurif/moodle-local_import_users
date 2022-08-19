@@ -23,7 +23,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require '../libs/config.php';
+require_once '../../config.php';
 require_once './lib.php';
 require_once $CFG->dirroot . '/enrol/locallib.php';
 require_once "group_multienrol_form.php";
@@ -35,6 +35,8 @@ $manager = new course_enrolment_manager($PAGE, $course);
 $submit_url = new moodle_url('/local/import_users/group_multienrol.php', array('id' => $course->id));
 
 require_login($course);
+require_capability('moodle/course:managegroups', $context);
+require_capability('local/import_users:multienrolgroup', $context);
 
 $PAGE->requires->jquery();
 $PAGE->set_pagelayout('course');
